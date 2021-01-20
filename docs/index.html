@@ -239,54 +239,44 @@
         </div>
       </div>
     </div>
-
-<bgsound src="static/music.mp3" loop="-1">
-<audio src="static/music.mp3" controls="" autoplay="autoplay" loop="loop" id="bgmusic" style="display:none"></audio>
- <script>
-    (function() {
-        function log(info) {
-            console.log(info);
-            // alert(info);
-        }
-        function forceSafariPlayAudio() {
-            audioEl.load(); // iOS 9   还需要额外的 load 一下, 否则直接 play 无效
-            audioEl.play(); // iOS 7/8 仅需要 play 一下
-        }
-
-        var audioEl = document.getElementById('bgmusic');
-
-        audioEl.addEventListener('loadstart', function() {
-            log('loadstart');
-        }, false);
-        audioEl.addEventListener('loadeddata', function() {
-            log('loadeddata');
-        }, false);
-        audioEl.addEventListener('loadedmetadata', function() {
-            log('loadedmetadata');
-        }, false);
-        audioEl.addEventListener('canplay', function() {
-            log('canplay');
-        }, false);
-        audioEl.addEventListener('play', function() {
-            log('play');
-            // 当 audio 能够播放后, 移除这个事件
-            window.removeEventListener('touchstart', forceSafariPlayAudio, false);
-        }, false);
-        audioEl.addEventListener('playing', function() {
-            log('playing');
-        }, false);
-        audioEl.addEventListener('pause', function() {
-            log('pause');
-        }, false);
-
-        // 由于 iOS Safari 限制不允许 audio autoplay, 必须用户主动交互(例如 click)后才能播放 audio,
-        // 因此我们通过一个用户交互事件来主动 play 一下 audio.
-        window.addEventListener('touchstart', forceSafariPlayAudio, false);
-
-        audioEl.src = "static/music.mp3";
-    })();
-    </script>
-
+                      <h2 class="wow fadeInUp underline padtop50 animated animated animated animated" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"><br><br><br><br><br><br><br>我们的相册</h2>
+<!--相册-->
+<div id="butong_net_right" style="overflow:hidden;width:1500px;">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr><td id="butong_net_right1" valign="top" align="center">
+<table cellpadding="2" cellspacing="0" border="0">
+<tr align="center">
+<td><img height="300"src="index_files/1.jpg"></td>
+<td><img height="300"src="index_files/2.jpg"></td>
+<td><img height="300"src="index_files/3.jpg"></td>
+<td><img height="300"src="index_files/4.jpg"></td>
+<td><img height="300"src="index_files/5.jpg"></td>
+<td><img height="300"src="index_files/6.jpg"></td>
+<td><img height="300"src="index_files/7.jpg"></td>
+<td><img height="300"src="index_files/8.jpg"></td>
+<td><img height="300"src="index_files/9.jpg"></td>
+<td><img height="300"src="index_files/10.jpg"></td>
+</tr>
+</table>
+</td>
+<td id="butong_net_right2" valign="top"></td>
+</tr>
+</table>
+</div>
+<script>
+var speed=50//速度数值越大速度越慢
+butong_net_right2.innerHTML=butong_net_right1.innerHTML
+function Marquee4(){
+if(butong_net_right.scrollLeft<=0)
+butong_net_right.scrollLeft+=butong_net_right2.offsetWidth
+else{
+butong_net_right.scrollLeft--
+}
+}
+var MyMar4=setInterval(Marquee4,speed)
+butong_net_right.οnmοuseοver=function() {clearInterval(MyMar4)}
+butong_net_right.οnmοuseοut=function() {MyMar4=setInterval(Marquee4,speed)}
+</script>
     <!-- BEGIN GO TO TOP -->
     <a href="http://ruhuoo.top" class="back-to-top" id="back-to-top" style="display: none;">
       <i> ♥ </i>
@@ -373,7 +363,11 @@
     }
     autoPlayAudio1(); // 推荐使用方法1
     </script>
-
+	<!--
+<audio autoplay="autoplay" controls="controls"loop="loop" preload="auto"
+            	src="index_files/music.mp3">
+      		你的浏览器版本太低，不支持audio标签
+	</audio>-->
 <script type="text/javascript" src="./index_files/common_love.js.下载"></script>				<div style="display:none">
 
 <script type="text/javascript" src="./index_files/c.js.下载"></script>
